@@ -9,6 +9,6 @@ This is a basic Django project created for learning purposes.
 - Accessed the project at `http://127.0.0.1:8000/`.
 
 ## Project Structure:
-- **manage.py** – Command-line utility for running tasks like starting the server and creating apps.
-- **settings.py** – Stores configuration for the project (database, installed apps, middleware).
-- **urls.py** – The "table of contents" of your Django project – maps URLs to views.
+- *manage.py* – Command-line utility for running tasks like starting the server and creating apps.
+- *settings.py* – Stores configuration for the project (database, installed apps, middleware).
+- *urls.py* – The "table of contents" of your Django project – maps URLs to views.
