@@ -17,7 +17,11 @@ urlpatterns = [
     path("profile/", views.profile, name="profile"),
 
      # Comment CRUD
-    path("post/<int:pk>/comment/new/", views.add_comment, name="add-comment"),
+    path("post/<int:pk>/comments/new/", views.add_comment, name="add-comment"),
     path("comment/<int:pk>/update/", views.CommentUpdateView.as_view(), name="comment-update"),
     path("comment/<int:pk>/delete/", views.CommentDeleteView.as_view(), name="comment-delete"),
+
+    # tags & search
+    path("tags/<str:tag_name>/", PostsByTagView.as_view(), name="posts-by-tag"),
+    path("search/", SearchResultsView.as_view(), name="search-results"),
 ]
