@@ -1,0 +1,12 @@
+<h2>Posts tagged with "{{ tag }}"</h2>
+{% if results %}
+  <ul>
+    {% for post in results %}
+      <li>
+        <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No posts with this tag yet.</p>
+{% endif %}
