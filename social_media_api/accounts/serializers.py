@@ -8,7 +8,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ('username', 'email', 'password', 'password2', 'first_name', 'last_name', 'bio')
+        fields = ('username', 'email', 'password', 'password2', 'first_name', 'last_name', 'bio', 'profile_picture')
 
     def validate(self, attrs):
         if attrs['password'] != attrs['password2']:
@@ -36,7 +36,14 @@ class UserLoginSerializer(serializers.Serializer):
         raise serializers.ValidationError('Must include username and password')
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    followers_count = serializers.ReadOnlyField()
+    following_count = serializers.ReadOnlyField()
+
     class Meta:
         model = CustomUser
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'bio', 'created_at')
-        read_only_fields = ('id', 'created_at')
+        fields = (
+            'id', 'username', 'email', 'first_name', 'last_name', 
+            'bio', 'profile_picture', 'followers_count', 'following_count',
+            'created_at', 'updated_at'
+        )
+        read_only_fields = ('id', 'created_at', 'updated_at')
